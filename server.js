@@ -2,6 +2,7 @@
 
 const express = require('express');
 const request = require('request');
+const path = require('path');
 
 // Constants
 const PORT = 8080;
@@ -12,6 +13,9 @@ const app = express();
 app.get('/', (req, res) => {
   res.send('Hello world\n');
 });
+app.get('/simple',(req,res) => {
+    res.sendFile(path.join(__dirname+'/simple.html'));
+  });
 
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
